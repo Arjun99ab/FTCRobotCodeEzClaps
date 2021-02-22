@@ -23,9 +23,9 @@ public abstract class TeleOpController extends BaseController {
     }
     public void moveDistanceSensorPowershotSideways(double power, double distance) {
         if(currentDistance > (distance + 3)) {
-            driveUntilDistanceCMLEFT(power, distance);
+            //driveUntilDistanceCMLEFT(power, distance);
         } else if(currentDistance < (distance - 3)){
-            driveUntilDistanceCMRIGHT(power, distance);
+            //driveUntilDistanceCMRIGHT(power, distance);
         } else {
             applyBrake();
             forward(0);
@@ -34,9 +34,9 @@ public abstract class TeleOpController extends BaseController {
 
     public void moveDistanceSensorHighGoalSideways(double power, double distance) {
         if(currentDistance > (distance + 3)) {
-            driveUntilDistanceCMRIGHT2(power, distance);
+            //driveUntilDistanceCMRIGHT2(power, distance);
         } else if(currentDistance < (distance - 3)){
-            driveUntilDistanceCMLEFT2(power, distance);
+            //driveUntilDistanceCMLEFT2(power, distance);
         } else {
             applyBrake();
             forward(0);

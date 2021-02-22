@@ -51,8 +51,6 @@ public abstract class BaseController extends LinearOpMode {
     protected CRServo crServo2;
     protected CRServo intakeServo;
     protected Servo angServo;
-    protected DistanceSensor distanceSensorLeft;
-    protected DistanceSensor distanceSensorRight;
     protected ModernRoboticsI2cRangeSensor distanceSensorFront;
 
 
@@ -143,7 +141,7 @@ public abstract class BaseController extends LinearOpMode {
         crServo = hardwareMap.crservo.get("crServo");
         crServo2 = hardwareMap.crservo.get("crServo2");
 
-        distanceSensorLeft = hardwareMap.get(DistanceSensor.class, "distanceSensorLeft");
+        //distanceSensorLeft = hardwareMap.get(DistanceSensor.class, "distanceSensorLeft");
         //distanceSensorRight = hardwareMap.get(DistanceSensor.class, "distanceSensorRight");
         distanceSensorFront = hardwareMap.get(ModernRoboticsI2cRangeSensor.class, "distanceSensorFront");
 
@@ -396,7 +394,7 @@ public abstract class BaseController extends LinearOpMode {
 
      */
 
-
+    /*
     public void driveUntilDistanceCMLEFT(double pow, double distance){
         while(distanceSensorLeft.getDistance(DistanceUnit.CM) > distance){
             sidewaysLeft(pow);
@@ -425,6 +423,8 @@ public abstract class BaseController extends LinearOpMode {
         applyBrake();
         forward(0);
     }
+
+     */
     public void driveUntilDistanceCMFORWARD(double pow, double distance){
         while(distanceSensorFront.getDistance(DistanceUnit.CM) > distance){
             forward(pow);
