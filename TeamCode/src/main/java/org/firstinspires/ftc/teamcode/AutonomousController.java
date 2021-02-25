@@ -173,8 +173,8 @@ public abstract class AutonomousController extends BaseController {
         topRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         botLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         botRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        telemetry.addData("Resetting", "Encoders");
-        telemetry.update();
+        //telemetry.addData("Resetting", "Encoders");
+        //telemetry.update();
     }
     public void forwardPIDF(double pow, double distance) {
 
@@ -409,33 +409,31 @@ public abstract class AutonomousController extends BaseController {
         telemetry.addData("Start angle on gyroTurn", startAngle);
         telemetry.update();
         //sleep(1000);
-
         if(degrees < 0) {
             double targetDegrees = startAngle + degrees;
 
-            while((getAngleZ()>(targetDegrees))&&(getAngleZ()<=0)){
-                telemetry.addData("Gyro", getAngleZ());
+            while((getAngleZ()>(targetDegrees))){
+                telemetry.addData("Inide Gyro",targetDegrees);
+                telemetry.addData("Inide Gyro", getAngleZ() );
+                telemetry.addData("Inide Gyro", (getAngleZ()>(targetDegrees)) );
                 telemetry.update();
-                turnLeft(-power);
-                telemetry.addData("Gyro", getAngleZ());
+                turnRight(power);
+                telemetry.addData("Inide Gyro", getAngleZ());
                 telemetry.update();
             }
             forward(0);
+
         } else if(degrees > 0) {
             double targetDegrees = startAngle + degrees;
             telemetry.addData("target Degrees", targetDegrees);
             telemetry.addData("Angle Z inside degrees >0", getAngleZ());
             telemetry.update();
 
-            if(getAngleZ()<0) {
-                GyroTurnTo0(0.4);
-
-                forward(0);
-                sleep(100);
-            }
-
-            while((getAngleZ()<(targetDegrees))&&(getAngleZ()>=0)){
-
+            while((getAngleZ()<(targetDegrees))){
+                telemetry.addData("Out Gyro",targetDegrees);
+                telemetry.addData("Out Gyro", getAngleZ() );
+                telemetry.addData("Out Gyro", (getAngleZ()<(targetDegrees)) );
+                telemetry.update();
                 telemetry.addData("Gyro", getAngleZ());
                 telemetry.update();
                 turnLeft(power);

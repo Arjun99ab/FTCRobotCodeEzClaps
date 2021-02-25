@@ -56,21 +56,15 @@ public class BlueLeft extends AutonomousController {
                 powerCRServo(-0.6);
                 sleep(1000);
 
-                forwardDistance(0.4, 40);
+                forwardDistance(0.4, 37);
 
                 resetEncoders();
 
-                GyroTurnTo0(0.35);
-
-                //GyroTurn(10, 0.4);
-
-                //sleep(500);
-
-                //GyroTurn(15, 0.3);
+                GyroTurn(-170, 0.4);
 
                 //navigate to shooter position
 
-                sidewaysDistanceRight(0.3, 29);
+                sidewaysDistanceRight(0.3, 33);
 
                 //setShooterVelocity();
                 //sleep(2000);
@@ -158,7 +152,7 @@ public class BlueLeft extends AutonomousController {
                 forward(0);
                 sleep(100);
 
-                GyroTurn(161, 0.6);
+                GyroTurn(170, 0.5);
 
                 //lower
                 powerCRServo2(-0.8);
@@ -173,7 +167,7 @@ public class BlueLeft extends AutonomousController {
 
                 resetEncoders();
 
-                GyroTurnTo0( 0.6);
+                GyroTurn(-170, 0.5);
 
                 sidewaysDistanceRight(0.3, 36);
 

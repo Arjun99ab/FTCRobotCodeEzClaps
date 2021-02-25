@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 
 @Autonomous(name="BlueRight", group="Linear Opmode")
-@Disabled
+//@Disabled
 public class BlueRight extends AutonomousController {
 
     double firstDegrees;

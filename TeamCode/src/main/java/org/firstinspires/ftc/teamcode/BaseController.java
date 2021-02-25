@@ -352,7 +352,7 @@ public abstract class BaseController extends LinearOpMode {
         shooterLeft.setPower(0.56);
     }
     public void setShooterVelocity(){
-        double shooterVelocity = 1344;
+        double shooterVelocity = 1680;
 
         shooter.setVelocity(shooterVelocity);
     }
