@@ -23,8 +23,7 @@ public class RedLeft extends AutonomousController {
                 sleep(1000);
 
                 //lower
-                //powerCRServo2(1);
-                powerWobbleArm(-0.47);
+                powerCRServo2(-0.8);
                 sleep(1500);
 
                 //grip
@@ -35,7 +34,7 @@ public class RedLeft extends AutonomousController {
                 //powerCRServo2(-0.6);
                 //sleep(1000);
 
-                powerWobbleArm(0.45);
+                //powerWobbleArm(0.45);
 
                 forwardDistance(0.8, 190);
 
@@ -48,7 +47,7 @@ public class RedLeft extends AutonomousController {
                 //lower
                 //powerCRServo2(0.8);
 
-                powerWobbleArm(-0.47);
+                //powerWobbleArm(-0.47);
                 sleep(1000);
 
                 //ungrip
@@ -70,6 +69,8 @@ public class RedLeft extends AutonomousController {
                 //park at white line
                 forwardDistance(0.8, 27);
 
+                sidewaysDistanceLeft(0.5, 50);
+
             } else if(wobblePos == "B") {
 
                 boolean isClamped = false;
@@ -79,7 +80,7 @@ public class RedLeft extends AutonomousController {
                 sleep(1000);
 
                 //lower
-                //powerCRServo2(0.6);
+                powerCRServo2(-0.8);
                 sleep(500);
 
                 //grip
@@ -87,18 +88,18 @@ public class RedLeft extends AutonomousController {
                 sleep(500);
 
                 //raise
-                //powerCRServo2(-0.6);
+                powerCRServo2(0.8);
                 sleep(1000);
+
+                setShooterVelocity();
 
                 forwardDistance(0.6, 246);
 
                 forward(0);
                 sleep(100);
 
-                setShooterVelocity();
-
                 //lower
-                //powerCRServo2(0.8);
+                powerCRServo2(-0.8);
                 sleep(1000);
 
                 //ungrip
@@ -107,13 +108,15 @@ public class RedLeft extends AutonomousController {
 
                 //navigate to shooter position
                 backwardDistance(0.5, 90.5); //idk distances
-                sidewaysDistanceRight(0.3, 37); //idk distances
+                sidewaysDistanceRight(0.45, 37.5); //idk distances
 
                 intakeRampShooter();
-                sleep(10000);
+                sleep(5000);
 
                 //park at white line
                 forwardDistance(0.4, 27);
+
+                sidewaysDistanceRight(0.5, 50);
 
             } else {
                 boolean isClamped = false;
@@ -123,7 +126,7 @@ public class RedLeft extends AutonomousController {
                 sleep(1000);
 
                 //lower
-                powerCRServo2(0.6);
+                powerCRServo2(-0.8);
                 sleep(500);
 
                 //grip
@@ -131,21 +134,20 @@ public class RedLeft extends AutonomousController {
                 sleep(500);
 
                 //raise
-                powerCRServo2(-0.6);
+                powerCRServo2(0.8);
                 sleep(1000);
 
-                forwardDistance(0.6, 312);
+                setShooterVelocity();
 
-                //move in position to place goal
-                sidewaysDistanceRight(0.7, 60.96);
+                forwardDistance(0.6, 312);
 
                 forward(0);
                 sleep(100);
 
-                setShooterVelocity();
+                sidewaysDistanceRight(0.5, 60.96);
 
                 //lower
-                powerCRServo2(1);
+                powerCRServo2(-0.8);
                 sleep(1000);
 
                 //ungrip
@@ -153,14 +155,16 @@ public class RedLeft extends AutonomousController {
                 sleep(1000);
 
                 //navigate to shooter position
-                backwardDistance(0.6, 157.5);
-                sidewaysDistanceLeft(0.4, 20);
+                backwardDistance(0.5, 155.5); //idk distances
+                sidewaysDistanceRight(0.45, 40.5); //idk distances
 
                 intakeRampShooter();
-                sleep(8000);
+                sleep(5000);
 
                 //park at white line
                 forwardDistance(0.4, 27);
+
+                sidewaysDistanceRight(0.5, 50);
 
             }
 

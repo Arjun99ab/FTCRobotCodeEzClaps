@@ -20,13 +20,14 @@ public class BlueRight extends AutonomousController {
 
                 boolean isClamped = false;
 
+                setShooterVelocity();
+
                 //grip
                 powerCRServo(1);
                 sleep(1000);
 
                 //lower
-                //powerCRServo2(1);
-                powerWobbleArm(-0.47);
+                powerCRServo2(-0.8);
                 sleep(1500);
 
                 //grip
@@ -34,49 +35,57 @@ public class BlueRight extends AutonomousController {
                 sleep(500);
 
                 //raise
-                //powerCRServo2(-0.6);
-                //sleep(1000);
-
-                powerWobbleArm(0.45);
+                powerCRServo2(0.8);
+                sleep(1000);
 
                 forwardDistance(0.7, 190);
 
-                forward(0);
-                sleep(250);
+                sidewaysDistanceLeft(0.4, 50); //measure encoders
 
-                sidewaysDistanceLeft(0.6, 100);
+                resetEncoders();
 
-                powerWobbleArm(-0.47);
+                GyroTurn(170, 0.6);
+
+                //lower
+                powerCRServo2(-0.8);
                 sleep(1000);
 
                 //ungrip
                 powerCRServo(-0.6);
                 sleep(1000);
+                forwardDistance(0.4, 37);
 
-                setShooterVelocity();
+                resetEncoders();
 
-                sidewaysDistanceRight(0.6, 84); //idk distances
+                GyroTurn(-170, 0.4);
 
-                backwardDistance(0.5, 36); //idk distances
-                setShooterVelocity();
-                sleep(2000);
+                //navigate to shooter position
+
+                sidewaysDistanceRight(0.3, 33);
+
+                //setShooterVelocity();
+                //sleep(2000);
 
                 intakeRampShooter();
-                sleep(9000);
+                sleep(6000);
 
-                forwardDistance(0.4, 27); //idk distance
+                //park at white line
+                forwardDistance(0.4, 27);
+
+                sidewaysDistanceRight(0.5, 50);
 
             } else if(wobblePos == "B") {
 
                 boolean isClamped = false;
 
+                setShooterVelocity();
+
                 //grip
                 powerCRServo(1);
                 sleep(1000);
 
                 //lower
-                //powerCRServo2(1);
-                powerWobbleArm(-0.47);
+                powerCRServo2(-0.8);
                 sleep(1500);
 
                 //grip
@@ -84,49 +93,45 @@ public class BlueRight extends AutonomousController {
                 sleep(500);
 
                 //raise
-                //powerCRServo2(-0.6);
-                //sleep(1000);
-
-                powerWobbleArm(0.45);
+                powerCRServo2(0.8);
+                sleep(1000);
 
                 forwardDistance(0.7, 246);
 
-                forward(0);
-                sleep(250);
+                sidewaysDistanceLeft(0.4, 50); //measure encoders
 
-                sidewaysDistanceLeft(0.5, 60);
-
-                powerWobbleArm(-0.47);
+                //lower
+                powerCRServo2(-0.8);
                 sleep(1000);
 
                 //ungrip
                 powerCRServo(-0.6);
                 sleep(1000);
 
-                setShooterVelocity();
+                backwardDistance(0.4, 53); //measure encoders
 
-                sidewaysDistanceRight(0.4, 30); //idk distances
-
-                backwardDistance(0.5, 90.5); //idk distances
-
-                setShooterVelocity();
-                sleep(2000);
+                //navigate to shooter position
+                sidewaysDistanceRight(0.3, 33);
 
                 intakeRampShooter();
-                sleep(9000);
+                sleep(6000);
 
-                forwardDistance(0.4, 27); //idk distance
+                //park at white line
+                forwardDistance(0.4, 27);
+
+                sidewaysDistanceRight(0.5, 50);
 
             } else {
                 boolean isClamped = false;
 
+                setShooterVelocity();
+
                 //grip
                 powerCRServo(1);
                 sleep(1000);
 
                 //lower
-                //powerCRServo2(1);
-                powerWobbleArm(-0.47);
+                powerCRServo2(-0.8);
                 sleep(1500);
 
                 //grip
@@ -134,39 +139,45 @@ public class BlueRight extends AutonomousController {
                 sleep(500);
 
                 //raise
-                //powerCRServo2(-0.6);
-                //sleep(1000);
-
-                powerWobbleArm(0.45);
+                powerCRServo2(0.8);
+                sleep(1000);
 
                 forwardDistance(0.7, 312);
 
-                forward(0);
-                sleep(250);
+                sidewaysDistanceLeft(0.4, 50); //measure encoders
 
-                sidewaysDistanceLeft(0.6, 100);
+                resetEncoders();
 
-                powerWobbleArm(-0.47);
+                GyroTurn(170, 0.6);
+
+                //lower
+                powerCRServo2(-0.8);
                 sleep(1000);
 
                 //ungrip
                 powerCRServo(-0.6);
                 sleep(1000);
 
-                setShooterVelocity();
+                forwardDistance(0.4, 75); //measure encoders
 
-                backwardDistance(0.5, 157.5); //idk distances
+                resetEncoders();
 
-                sidewaysDistanceRight(0.6, 84); //idk distances
+                GyroTurn(-170, 0.4);
 
+                //navigate to shooter position
 
-                setShooterVelocity();
-                sleep(2000);
+                sidewaysDistanceRight(0.3, 33);
+
+                //setShooterVelocity();
+                //sleep(2000);
 
                 intakeRampShooter();
-                sleep(9000);
+                sleep(6000);
 
-                forwardDistance(0.4, 27); //idk distance
+                //park at white line
+                forwardDistance(0.4, 27);
+
+                sidewaysDistanceRight(0.5, 50);
 
             }
 

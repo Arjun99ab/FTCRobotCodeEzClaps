@@ -39,7 +39,6 @@ public abstract class BaseController extends LinearOpMode {
     protected DcMotor botLeft;
     protected DcMotor botRight;
     protected DcMotor shooterLeft;
-    protected DcMotor wobbleArm;
     protected DcMotorEx frontLeft;
     protected DcMotorEx frontRight;
     protected DcMotorEx backLeft;
@@ -49,7 +48,7 @@ public abstract class BaseController extends LinearOpMode {
     protected BNO055IMU myGyro;
     protected CRServo crServo;
     protected CRServo crServo2;
-    protected CRServo intakeServo;
+    protected DcMotor intakeMotor;
     protected Servo angServo;
     protected ModernRoboticsI2cRangeSensor distanceSensorFront;
 
@@ -127,7 +126,7 @@ public abstract class BaseController extends LinearOpMode {
         shooter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         shooter.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        wobbleArm = hardwareMap.dcMotor.get("wobbleArm");
+        //wobbleArm = hardwareMap.dcMotor.get("wobbleArm");
 
         frontLeft = hardwareMap.get(DcMotorEx.class, "topLeft");
         frontRight = hardwareMap.get(DcMotorEx.class, "topRight");
@@ -137,7 +136,7 @@ public abstract class BaseController extends LinearOpMode {
         rampMotor = hardwareMap.dcMotor.get("rampMotor"); //port 0
         rampMotor.setDirection(DcMotorSimple.Direction.REVERSE);
 
-        intakeServo = hardwareMap.crservo.get("intakeServo");
+        intakeMotor = hardwareMap.dcMotor.get("intakeMotor");
         crServo = hardwareMap.crservo.get("crServo");
         crServo2 = hardwareMap.crservo.get("crServo2");
 
@@ -278,9 +277,7 @@ public abstract class BaseController extends LinearOpMode {
         crServo2.setDirection(CRServo.Direction.FORWARD);
         crServo2.setPower(pow);
     }
-    public void powerWobbleArm(double pow) {
-        wobbleArm.setPower(pow);
-    }
+
 
 
     /*
@@ -352,7 +349,7 @@ public abstract class BaseController extends LinearOpMode {
         shooterLeft.setPower(0.56);
     }
     public void setShooterVelocity(){
-        double shooterVelocity = 1680;
+        double shooterVelocity = 1704;
 
         shooter.setVelocity(shooterVelocity);
     }
@@ -371,16 +368,16 @@ public abstract class BaseController extends LinearOpMode {
 
         rampMotor.setPower(1);
         setShooterVelocity();
-        intakeServo.setDirection(CRServo.Direction.FORWARD);
-        intakeServo.setPower(1);
+        intakeMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        intakeMotor.setPower(0.65);
     }
 
     public void intakeRampShooterPowershot(){
 
         rampMotor.setPower(1);
         //setShooterVelocityPowershot(3);
-        intakeServo.setDirection(CRServo.Direction.FORWARD);
-        intakeServo.setPower(1);
+        intakeMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        intakeMotor.setPower(0.65);
     }
 
     /*

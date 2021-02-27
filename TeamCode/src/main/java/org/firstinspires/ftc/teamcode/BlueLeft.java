@@ -60,7 +60,7 @@ public class BlueLeft extends AutonomousController {
 
                 resetEncoders();
 
-                GyroTurn(-170, 0.4);
+                GyroTurn(-171, 0.4);
 
                 //navigate to shooter position
 
@@ -75,7 +75,7 @@ public class BlueLeft extends AutonomousController {
                 //park at white line
                 forwardDistance(0.4, 27);
 
-                sidewaysDistanceRight(0.5, 50);
+                sidewaysDistanceLeft(0.5, 50);
 
             } else if(wobblePos == "B") {
 
@@ -114,7 +114,7 @@ public class BlueLeft extends AutonomousController {
 
                 //navigate to shooter position
                 backwardDistance(0.5, 90); //idk distances
-                sidewaysDistanceRight(0.45, 34); //idk distances
+                sidewaysDistanceRight(0.45, 26); //idk distances
 
                 intakeRampShooter();
                 sleep(5000);
@@ -145,14 +145,14 @@ public class BlueLeft extends AutonomousController {
                 powerCRServo2(0.8);
                 sleep(1000);
 
-                forwardDistance(0.6, 312);
+                forwardDistance(0.6, 302);
 
                 resetEncoders();
 
                 forward(0);
                 sleep(100);
 
-                GyroTurn(170, 0.5);
+                GyroTurn(-170, 0.5);
 
                 //lower
                 powerCRServo2(-0.8);
@@ -163,13 +163,13 @@ public class BlueLeft extends AutonomousController {
                 sleep(1000);
 
                 //navigate to shooter position
-                forwardDistance(0.6, 158);
+                forwardDistance(0.6, 148);
 
                 resetEncoders();
 
-                GyroTurn(-170, 0.5);
+                GyroTurn(170, 0.5);
 
-                sidewaysDistanceRight(0.3, 36);
+                sidewaysDistanceRight(0.3, 28);
 
                 intakeRampShooter();
                 sleep(5000);

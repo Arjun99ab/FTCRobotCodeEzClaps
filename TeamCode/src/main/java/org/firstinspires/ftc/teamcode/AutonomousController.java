@@ -67,15 +67,21 @@ public abstract class AutonomousController extends BaseController {
                 }
                 printTelemetryUpdates();
                 sleep(200);
-            } else {
-                eocvval = pipeline.position.name();
-                if(eocvval.equals("NONE")){
-                    wobblePos = "A";
-                } else if(eocvval.equals("ONE")){
-                    wobblePos = "B";
-                } else{
-                    wobblePos = "C";
-                }
+            } else if(!gamepad2.y || !gamepad2.b || !gamepad2.dpad_right || !gamepad2.dpad_left || !gamepad2.dpad_up || !gamepad2.dpad_down) {
+                printTelemetryUpdates();
+            }
+
+            else {
+
+            }
+
+            eocvval = pipeline.position.name();
+            if(eocvval.equals("NONE")){
+                wobblePos = "A";
+            } else if(eocvval.equals("ONE")){
+                wobblePos = "B";
+            } else{
+                wobblePos = "C";
             }
 
         }

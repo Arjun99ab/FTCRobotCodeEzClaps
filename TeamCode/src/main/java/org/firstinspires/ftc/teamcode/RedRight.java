@@ -20,6 +20,8 @@ public class RedRight extends AutonomousController {
 
                     boolean isClamped = false;
 
+                    setShooterVelocity();
+
                     //grip
                     powerCRServo(1);
                     sleep(1000);
@@ -35,8 +37,6 @@ public class RedRight extends AutonomousController {
                     //raise
                     powerCRServo2(0.8);
                     sleep(1000);
-
-                    setShooterVelocity();
 
                     forwardDistance(0.6, 246);
 
@@ -54,7 +54,7 @@ public class RedRight extends AutonomousController {
                     sleep(1000);
 
                     //navigate to shooter position
-                    backwardDistance(0.5, 90.5); //idk distances
+                    backwardDistance(0.5, 89.5); //idk distances
                     sidewaysDistanceRight(0.45, 37.5); //idk distances
 
                     intakeRampShooter();
@@ -67,6 +67,8 @@ public class RedRight extends AutonomousController {
 
                 } else if(wobblePos == "C") {
                     boolean isClamped = false;
+
+                    setShooterVelocity();
 
                     //grip
                     powerCRServo(1);
@@ -105,7 +107,7 @@ public class RedRight extends AutonomousController {
 
                     //navigate to shooter position
                     backwardDistance(0.6, 155.5);
-                    sidewaysDistanceLeft(0.3, 40.5);
+                    sidewaysDistanceLeft(0.3, 36.5);
 
                     intakeRampShooter();
                     sleep(5000);
@@ -117,6 +119,8 @@ public class RedRight extends AutonomousController {
 
                 } else {
                     boolean isClamped = false;
+
+                    setShooterVelocity();
 
                     //grip
                     powerCRServo(1);
@@ -151,8 +155,8 @@ public class RedRight extends AutonomousController {
 
 
                     //navigate to shooter position
-                    backwardDistance(0.4, 36);
-                    sidewaysDistanceLeft(0.3, 29);
+                    backwardDistance(0.4, 35);
+                    sidewaysDistanceLeft(0.3, 30.5);
 
                     //setShooterVelocity();
                     //sleep(2000);
@@ -163,7 +167,7 @@ public class RedRight extends AutonomousController {
                     //park at white line
                     forwardDistance(0.4, 27);
 
-                    sidewaysDistanceLeft(0.5, 80);
+                    sidewaysDistanceRight(0.5, 8);
                 }
 
                 break;

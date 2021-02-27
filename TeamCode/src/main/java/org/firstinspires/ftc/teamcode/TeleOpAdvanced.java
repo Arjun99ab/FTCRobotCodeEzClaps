@@ -2,10 +2,11 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServo;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
-
+//dogtreat
 @TeleOp(name="TeleOpAdvanced", group="Linear Opmode")
 //@Disabled
 public class TeleOpAdvanced extends TeleOpController {
@@ -30,7 +31,7 @@ public class TeleOpAdvanced extends TeleOpController {
         double left_y2 = 0;
         double right_y2 = 0;
 
-        double shooterVelocity = 1344;
+        double shooterVelocity = 1704;
 
         double pow = 1;
 
@@ -74,25 +75,25 @@ public class TeleOpAdvanced extends TeleOpController {
                 botLeft.setPower(left_y1 - left_x1 + right_x1);
                 topRight.setPower(left_y1 - left_x1 - right_x1);
                 botRight.setPower(left_y1 + left_x1 - right_x1);
-                    intakeServo.setDirection(CRServo.Direction.FORWARD);
-                    intakeServo.setPower(1);
+                    intakeMotor.setDirection(CRServo.Direction.FORWARD);
+                    intakeMotor.setPower(0.65);
 
             } else if(gamepad1.dpad_up && gamepad2.a ){
                     forward(pow);
-                    intakeServo.setDirection(CRServo.Direction.FORWARD);
-                    intakeServo.setPower(1);
+                    intakeMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+                    intakeMotor.setPower(0.65);
 
             } else if(gamepad1.dpad_down && gamepad2.a ) {
                     backward(pow);
-                    intakeServo.setDirection(CRServo.Direction.FORWARD);
-                    intakeServo.setPower(1);
+                    intakeMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+                    intakeMotor.setPower(0.65);
 
             } else if(gamepad1.dpad_down && gamepad2.y ) {
                     backward(pow);
                     setShooterVelocityInput(shooterVelocity);
                     rampMotor.setPower(1);
-                    intakeServo.setDirection(CRServo.Direction.FORWARD);
-                    intakeServo.setPower(1);
+                    intakeMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+                    intakeMotor.setPower(0.65);
 
             } else if((left_y1 != 0 || left_x1 != 0 || right_x1 != 0) && gamepad1.right_bumper) {
                 topLeft.setPower(left_y1 + left_x1 + right_x1);
@@ -109,16 +110,16 @@ public class TeleOpAdvanced extends TeleOpController {
                 botRight.setPower(left_y1 + left_x1 - right_x1);
                     setShooterVelocityInput(shooterVelocity);
                     rampMotor.setPower(1);
-                    intakeServo.setDirection(CRServo.Direction.FORWARD);
-                    intakeServo.setPower(1);
+                    intakeMotor.setDirection(CRServo.Direction.FORWARD);
+                    intakeMotor.setPower(0.65);
 
             }else if(gamepad1.dpad_up && gamepad2.y ){
 
                     forward(pow);
                     setShooterVelocityInput(shooterVelocity);
                     rampMotor.setPower(1);
-                    intakeServo.setDirection(CRServo.Direction.FORWARD);
-                    intakeServo.setPower(1);
+                    intakeMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+                    intakeMotor.setPower(0.65);
 
             } else if((left_y1 != 0 || left_x1 != 0 || right_x1 != 0) && right_y2 != 0) {
 
@@ -251,12 +252,12 @@ public class TeleOpAdvanced extends TeleOpController {
 
                 rampMotor.setPower(1);
                 shooter.setVelocity(shooterVelocity);
-                intakeServo.setDirection(CRServo.Direction.FORWARD);
-                intakeServo.setPower(1);
+                intakeMotor.setDirection(CRServo.Direction.FORWARD);
+                intakeMotor.setPower(0.65);
 
             } else if(gamepad2.a) {
-                intakeServo.setDirection(CRServo.Direction.FORWARD);
-                intakeServo.setPower(1);
+                intakeMotor.setDirection(CRServo.Direction.FORWARD);
+                intakeMotor.setPower(0.65);
             } else if(gamepad2.b && isUp == false) {
                 isUp = true;
                 //grip
@@ -283,7 +284,7 @@ public class TeleOpAdvanced extends TeleOpController {
                 rampMotor.setPower(right_y2);
             }
             else if(gamepad2.left_stick_y != 0) {
-                intakeServo.setPower(gamepad2.left_stick_y);
+                intakeMotor.setPower(gamepad2.left_stick_y);
             }
             else if(gamepad1.right_bumper) {
                 setShooterVelocityInput(shooterVelocity);
@@ -295,7 +296,7 @@ public class TeleOpAdvanced extends TeleOpController {
                 sleep(200);
             }
             else if(gamepad2.dpad_right) {
-                shooterVelocity = 1344;
+                shooterVelocity = 1704;
                 telemetry.addData("Velocity", shooterVelocity);
                 telemetry.update();
                 sleep(200);
@@ -339,7 +340,7 @@ public class TeleOpAdvanced extends TeleOpController {
                 powerCRServo(0);
                 forward(0);
                 rampMotor.setPower(0);
-                intakeServo.setPower(0);
+                intakeMotor.setPower(0);
             } else if(gamepad1.left_bumper && crServo.getPower() != 0 && crServo2.getPower() != 0) {
                 if(isInHighSpeedMode == true){
                     isInHighSpeedMode = false;
@@ -371,7 +372,7 @@ public class TeleOpAdvanced extends TeleOpController {
                 powerCRServo(0);
                 forward(0);
                 rampMotor.setPower(0);
-                intakeServo.setPower(0);
+                intakeMotor.setPower(0);
             }
         }
     }
