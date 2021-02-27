@@ -135,8 +135,8 @@ public class EOCV extends BaseController
 
 
 
-        int FOUR_RING_THRESHOLD = 145;
-        int ONE_RING_THRESHOLD = 142;
+        int FOUR_RING_THRESHOLD = 142;
+        int ONE_RING_THRESHOLD = 137;
 
         /*
         Point region1_pointA = new Point(
